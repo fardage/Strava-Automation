@@ -69,9 +69,10 @@ struct UpdateActivity {
 
 extension Components.Schemas.DetailedActivity {
     var domainActivity: Domain.Activity {
-        .init(
+        return Domain.Activity(
             id: value1.value1.id,
             name: value1.value2.name,
+            startDateLocal: value1.value2.start_date_local,
             distance: value1.value2.distance,
             movingTime: value1.value2.moving_time,
             elapsedTime: value1.value2.elapsed_time,
@@ -82,5 +83,15 @@ extension Components.Schemas.DetailedActivity {
             endLatlng: value1.value2.end_latlng ?? [Float](),
             commute: value1.value2.commute ?? false
         )
+    }
+
+    var stringEncoded: String? {
+        if let data = try? JSONEncoder().encode(value1.value2),
+           let string = String(data: data, encoding: String.Encoding.utf8)
+        {
+            return string
+        } else {
+            return nil
+        }
     }
 }

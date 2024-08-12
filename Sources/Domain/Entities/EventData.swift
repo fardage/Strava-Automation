@@ -1,7 +1,7 @@
 import Foundation
 
-public struct EventData {
-    public enum AspectType: String {
+public struct EventData: Sendable {
+    public enum AspectType: String, Sendable {
         case create, update, delete
     }
 

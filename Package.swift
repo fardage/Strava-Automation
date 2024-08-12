@@ -14,6 +14,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.0.0"),
         .package(url: "https://github.com/swift-server/swift-openapi-async-http-client", from: "1.0.0"),
+        .package(url: "https://github.com/MacPaw/OpenAI.git", branch: "main")
     ],
     targets: [
         .executableTarget(

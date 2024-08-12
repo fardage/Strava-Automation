@@ -15,4 +15,10 @@ struct EnvConfiguration: Configuration {
     var clientID: String = Environment.get("CLIENT_ID")!
 
     var redirectURI: String = Environment.get("REDIRECT_URI")!
+
+    var openAIToken: String = Environment.get("OPENAI_API_KEY")!
+
+    var httpReferrer: String = Environment.get("HTTP_REFERER")!
+
+    var openWeatherMapToken: String = Environment.get("OPENWEATHERMAP_API_KEY")!
 }

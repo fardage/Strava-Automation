@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AccessToken {
+public struct AccessToken: Sendable {
     public var id: UUID?
     public var tokenType: String
     public var expiresAt: Date

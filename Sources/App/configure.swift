@@ -20,13 +20,21 @@ public func configure(_ app: Application) async throws {
     )
     let tokenStore = TokenStore(database: app.db)
     let stravaDataProvider = StravaDataProvider()
+    let llmService = LLMService(
+        openAIToken: envConfiguration.openAIToken,
+        openWeatherMapToken: envConfiguration.openWeatherMapToken,
+        httpReferrer: envConfiguration.httpReferrer,
+        client: app.client,
+        logger: app.logger
+    )
 
     let updateActivityFeature = UpdateActivityFeature(
         configuration: envConfiguration,
         logger: logger,
         tokenStore: tokenStore,
         tokenService: tokenService,
-        stravaDataProvider: stravaDataProvider
+        stravaDataProvider: stravaDataProvider,
+        llmService: llmService
     )
     let authFeature = AuthFeature(
         logger: logger,

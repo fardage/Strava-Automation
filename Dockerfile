@@ -59,6 +59,7 @@ RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
       libjemalloc2 \
       ca-certificates \
       tzdata \
+      libcurl4 \
 # If your app or its dependencies import FoundationNetworking, also install `libcurl4`.
       # libcurl4 \
 # If your app or its dependencies import FoundationXML, also install `libxml2`.
@@ -70,6 +71,8 @@ RUN useradd --user-group --create-home --system --skel /dev/null --home-dir /app
 
 # Switch to the new home directory
 WORKDIR /app
+
+RUN mkdir -p /app/db
 
 # Copy built executable and any staged resources from builder
 COPY --from=build --chown=vapor:vapor /staging /app

@@ -5,6 +5,7 @@ import Foundation
 public struct Activity: Codable {
     public let id: Int64?
     public let name: String?
+    public let startDateLocal: Date?
     public let distance: Float?
     public let movingTime: Int?
     public let elapsedTime: Int?
@@ -18,6 +19,7 @@ public struct Activity: Codable {
     public enum CodingKeys: String, CodingKey {
         case id
         case name
+        case startDateLocal = "start_date_local"
         case distance
         case movingTime = "moving_time"
         case elapsedTime = "elapsed_time"
@@ -32,6 +34,7 @@ public struct Activity: Codable {
     public init(
         id: Int64?,
         name: String?,
+        startDateLocal: Date?,
         distance: Float?,
         movingTime: Int?,
         elapsedTime: Int?,
@@ -44,6 +47,7 @@ public struct Activity: Codable {
     ) {
         self.id = id
         self.name = name
+        self.startDateLocal = startDateLocal
         self.distance = distance
         self.movingTime = movingTime
         self.elapsedTime = elapsedTime
